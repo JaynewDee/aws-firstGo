@@ -38,6 +38,7 @@ const params = {
    }
 };
 
+// = create table with attributes defined by params object = //
 dynamodb.createTable(params, (err, data) => {
    if (err) {
       console.error("Unable to create table. Error JSON:", JSON.stringify(err, null, 2));
