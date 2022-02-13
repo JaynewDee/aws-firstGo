@@ -1,8 +1,11 @@
 const AWS = require('aws-sdk');
+require('dotenv').config();
 
 // = Configure connection to local dynamoDB instance = //
 AWS.config.update({
-   region: "us-east-1",
+   accessKeyId: process.env.DB_ACCESS,
+   secretAccessKey: process.env.DB_SECRET,
+   region: "us-east-2",
    endpoint: "http://localhost:8000"
 });
 
@@ -13,7 +16,7 @@ const dynamodb = new AWS.DynamoDB({
 
 // = Define parameters for createTable method = //
 const params = {
-   TableName: "Thoughts",
+   TableName: "Ponderances",
    KeySchema: [{
          AttributeName: "username",
          KeyType: "HASH"
