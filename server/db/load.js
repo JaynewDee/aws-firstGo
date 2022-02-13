@@ -10,9 +10,9 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 
 
 console.log("Data incoming...");
-const allUsers = JSON.parse(fs.readFileSync('./seeds.json', 'utf8'));
+const allUsers = JSON.parse(fs.readFileSync('./server/db/seeds.json', 'utf8'));
 
-allUsers.forEAch(user => {
+allUsers.forEach(user => {
    const params = {
       TableName: "Ponderances",
       Item: {
@@ -23,3 +23,11 @@ allUsers.forEAch(user => {
    }
 })
 
+dynamoDB.put(params, (err, data) => {
+   if (err) {
+      console.error(err)
+      console.log(new Error("Something went wrong @ dynamoDB.put ..."))
+   } else {
+      console.log("Put action at Load.js Line26 SUCCESSFUL")
+   }
+})
