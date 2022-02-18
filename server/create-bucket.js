@@ -1,18 +1,24 @@
 // === import package allowing for communication with service === //
-const AWS = require ('aws-sdk');
+const AWS = require('aws-sdk');
 
 // === uuid package enables creation of unique bucket name === //
-const { v4: uuidv4 } = require('uuid');
+const {
+   v4: uuidv4
+} = require('uuid');
 
 // === configure sdk for regional service usage === //
-AWS.config.update({region: 'us-east-1'});
+AWS.config.update({
+   region: 'us-east-2'
+});
 
 // === create an s3 service object === //
-const s3 = new AWS.S3({apiVersion: '2006-03-01'});
+const s3 = new AWS.S3({
+   apiVersion: '2006-03-01'
+});
 
 // === Initialize params for createBucket function === //
 const bucketParams = {
-   Bucket : "user-images-" + uuidv4()
+   Bucket: "user-images-" + uuidv4()
 };
 
 // === use createBucket s3 object method to create bucket === //
