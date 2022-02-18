@@ -8,3 +8,4 @@
 > ![table-params](README-imgs/table-params.png)
 > ![get-all](README-imgs/get-all.png)
 > ![get-user](README-imgs/get-user.png)
+> ![new-user](README-imgs/new-user.png)
