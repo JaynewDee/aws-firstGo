@@ -8,8 +8,22 @@ const Profile = (props) => {
   const [thoughts, setThoughts] = useState([{
     username: userParam,
     createdAt: '', 
-    thought: '',
+    ponderance: '',
   }]);
+
+  useEffect(() => {
+   const fetchData = async () => {
+     try {
+       const res = await fetch(`/api/users/${userParam}`);
+       const data = await res.json();
+       setThoughts([...data]);
+       setIsLoaded(true);
+     } catch (error) {
+       console.log(error);
+     }
+   };
+   fetchData();
+   }, [userParam]);
 
   return (
     <div>
