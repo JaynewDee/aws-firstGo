@@ -1,22 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Profile from './pages/Profile';
 
-function App() {
+const App = () => {
   return (
     <Router>
     <div className="flex-column justify-flex-start min-100-vh">
       <Header />
       <div className="container">
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/profile/:username" component={Profile} />
-          <Route component={NoMatch} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/profile/:username" element={<Profile/>} />
+          <Route element={<NoMatch/>} />
+        </Routes>
       </div>
       <Footer />
     </div>
