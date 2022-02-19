@@ -8,7 +8,7 @@ const Profile = (props) => {
   const [thoughts, setThoughts] = useState([{
     username: userParam,
     createdAt: '', 
-    ponderance: '',
+    thought: '',
   }]);
 
   useEffect(() => {

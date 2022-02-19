@@ -14,7 +14,7 @@ const ThoughtForm = () => {
       setCharacterCount(event.target.value.length);
     }
   };
-
+  
   // submit form
   const handleFormSubmit = (event) => {
     event.preventDefault();

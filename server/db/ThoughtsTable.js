@@ -16,7 +16,7 @@ const dynamodb = new AWS.DynamoDB({
 
 // = Define parameters for createTable method = //
 const params = {
-   TableName: "Ponderances",
+   TableName: "Thoughts",
    KeySchema: [{
          AttributeName: "username",
          KeyType: "HASH"

@@ -12,7 +12,6 @@ const Home = () => {
        const res = await fetch('/api/users');
        console.log(res)
        const jsonData = await res.json();
-       console.log(jsonData)
        // sort the array by createdAt property ordered by descending values
        const data = jsonData.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1);
        setThoughts([...data]);

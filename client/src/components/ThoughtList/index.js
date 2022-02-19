@@ -10,8 +10,7 @@ const ThoughtList = ({ thoughts, title }) => {
     <div>
       <h3>{title}</h3>
       {thoughts &&
-        thoughts.map((thought) =>(
-           
+        thoughts.map((thought) => (
           <div key={thought.createdAt} className="card mb-3">
             <p className="card-header">
               <Link
@@ -19,12 +18,12 @@ const ThoughtList = ({ thoughts, title }) => {
                 style={{ fontWeight: 700 }}
                 className="text-light"
               >
-                on {new Date(parseInt(thought.createdAt)).toString()}
+                {thought.username} on {new Date(parseInt(thought.createdAt)).toString()}
               </Link>
             </p>
-            {thought.ponderance &&
+            {thought.thought &&
               <p className="px-2 mt-2">
-                {thought.ponderance}
+                {thought.thought}
               </p>
             }
             
