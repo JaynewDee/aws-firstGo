@@ -21,9 +21,9 @@ const ThoughtList = ({ thoughts, title }) => {
                 {thought.username}'s thought on {new Date(parseInt(thought.createdAt)).toString()}
               </Link>{' '}
             </p>
-            {thought.thought &&
+            {thought.ponderance &&
               <p className="px-2 mt-2">
-                {thought.thought}
+                {thought.ponderance}
               </p>
             }
             
