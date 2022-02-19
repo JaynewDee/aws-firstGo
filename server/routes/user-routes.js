@@ -24,6 +24,7 @@ router.get('/users', (req, res) => {
       }else {
          // - Table data returns from scan as Items property of response object - //
         res.json(data.Items)
+        console.log(data)
       }
     });
 })

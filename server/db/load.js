@@ -20,7 +20,7 @@ allUsers.forEach(user => {
       Item: {
          "username": user.username,
          "createdAt": user.createdAt,
-         "ponderance": user.ponderance
+         "ponderance": user.ponderance,
       }
    }
 
