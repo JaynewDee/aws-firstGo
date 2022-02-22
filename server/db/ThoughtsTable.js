@@ -6,7 +6,6 @@ AWS.config.update({
    accessKeyId: process.env.DB_ACCESS,
    secretAccessKey: process.env.DB_SECRET,
    region: "us-east-2",
-   endpoint: "http://localhost:8000"
 });
 
 // = Use aws class to build object to interface with DB = //
@@ -16,7 +15,7 @@ const dynamodb = new AWS.DynamoDB({
 
 // = Define parameters for createTable method = //
 const params = {
-   TableName: "Ponderances",
+   TableName: "Thoughts",
    KeySchema: [{
          AttributeName: "username",
          KeyType: "HASH"

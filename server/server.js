@@ -12,6 +12,13 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
+app.use((req, res, next) => {
+   res.append('Access-Control-Allow-Origin', ['*']);
+   res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+   res.append('Access-Control-Allow-Headers', 'Content-Type');
+   next();
+});
+
 // - Set up API user routes as Express middleware - //
 app.use('/api/', userRoutes);
 

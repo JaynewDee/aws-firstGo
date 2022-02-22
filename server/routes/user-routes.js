@@ -5,12 +5,11 @@ const router = express.Router();
 const AWS = require("aws-sdk");
 const awsConfig = {
   region: "us-east-2",
-  endpoint: "http://localhost:8000",
 };
 
 AWS.config.update(awsConfig);
 const dynamodb = new AWS.DynamoDB.DocumentClient();
-const table = "Ponderances";
+const table = "Thoughts";
 
 router.get('/users', (req, res) => {
    const params = {
@@ -24,6 +23,7 @@ router.get('/users', (req, res) => {
       }else {
          // - Table data returns from scan as Items property of response object - //
         res.json(data.Items)
+        console.log(data)
       }
     });
 })
@@ -41,15 +41,15 @@ router.get('/users/:username', (req, res) => {
       ExpressionAttributeNames: {
         "#un": "username",
         "#ca": "createdAt",
-        "#po": "ponderance"
+        "#th": "thought"
       },
       // - actual value to search for, as specified by client - //
       ExpressionAttributeValues: {
         ":user": req.params.username
       },
       // - Specify which attributes of items to retrieve - //
-      // * In this case, we specify retrieval of -ponderance- and -createdAt- * //
-      ProjectionExpression: "#po, #ca",
+      // * In this case, we specify retrieval of -thought- and -createdAt- * //
+      ProjectionExpression: "#th, #ca",
       // - property accepts a boolean determining sorting of response data - //
          // * false for descending, true for ascending * //
       ScanIndexForward: false
@@ -75,7 +75,7 @@ router.post('/users', (req, res) => {
      Item: {
        "username": req.body.username,
        "createdAt": Date.now(),
-       "ponderance": req.body.ponderance
+       "thought": req.body.thought
      }
    };
    // - put method corresponds with functionality of post route - //
