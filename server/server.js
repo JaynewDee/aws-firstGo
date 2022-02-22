@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const userRoutes = require('./routes/user-routes');
+const imageRoutes = require('./routes/image-upload');
 
 // - Express middleware configuring format exchange as json - //
 app.use(express.json());
@@ -21,7 +22,7 @@ app.use((req, res, next) => {
 
 // - Set up API user routes as Express middleware - //
 app.use('/api/', userRoutes);
-
+app.use('/api', imageRoutes)
 // - Initialize the server instance at PORT - //
 app.listen(PORT, () =>
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
