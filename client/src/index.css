@@ -1,10 +1,12 @@
 :root {
-  --primary: #497573;
-  --secondary: #99f7f2;
+  --primary: ;
+  --dark: #f05454;
+  --void: #121212;
+  --secondary: #30475e;
   --tertiary: #b2c2c1;
-  --quatrinary: #cadbda;
-  --light: #e1f5f4;
-  --dark: #6c7575;
+  --quatrinary: #f5f5f5;
+  --light: #f5f5f5;
+  
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -31,7 +33,7 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #f3fffee1;
+  background-color: #f5f5f5;
 }
 
 h1,
@@ -137,7 +139,7 @@ nav a:hover {
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   background-color: var(--light);
-  color: var(--dark);
+  color: var(--void);
 }
 
 .card-header {

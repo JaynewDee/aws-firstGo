@@ -89,11 +89,10 @@ const ThoughtForm = () => {
         </button>
         <label className="form-input col-12  p-1">
                Add an image to your thought: 
-               <input
-                 type="file"
-                 ref={fileInput}
-                 className="form-input p-2"
-               />
+            <input 
+               type="file"
+               ref={fileInput} 
+               className="form-input p-2"/>
                <button 
                  className="btn" 
                  onClick={handleImageUpload} 
