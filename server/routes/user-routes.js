@@ -41,7 +41,8 @@ router.get('/users/:username', (req, res) => {
       ExpressionAttributeNames: {
         "#un": "username",
         "#ca": "createdAt",
-        "#th": "thought"
+        "#th": "thought",
+        "#img": "image"
       },
       // - actual value to search for, as specified by client - //
       ExpressionAttributeValues: {
@@ -49,7 +50,7 @@ router.get('/users/:username', (req, res) => {
       },
       // - Specify which attributes of items to retrieve - //
       // * In this case, we specify retrieval of -thought- and -createdAt- * //
-      ProjectionExpression: "#th, #ca",
+      ProjectionExpression: "#un, #th, #ca, #img",
       // - property accepts a boolean determining sorting of response data - //
          // * false for descending, true for ascending * //
       ScanIndexForward: false
@@ -75,7 +76,8 @@ router.post('/users', (req, res) => {
      Item: {
        "username": req.body.username,
        "createdAt": Date.now(),
-       "thought": req.body.thought
+       "thought": req.body.thought,
+       "image": req.body.image
      }
    };
    // - put method corresponds with functionality of post route - //

@@ -42,6 +42,7 @@ const ThoughtForm = () => {
   // submit form
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    event.stopPropagation();
 
     const postData = async () => {
       const res = await fetch('/api/users', {
@@ -87,13 +88,14 @@ const ThoughtForm = () => {
         <button className="btn col-12 " type="submit">
           Submit
         </button>
-        <label className="form-input col-12  p-1">
+      </form>
+      <form>
+      <label className="form-input col-12  p-1">
                Add an image to your thought: 
-               <input
-                 type="file"
-                 ref={fileInput}
-                 className="form-input p-2"
-               />
+            <input 
+               type="file"
+               ref={fileInput} 
+               className="form-input p-2"/>
                <button 
                  className="btn" 
                  onClick={handleImageUpload} 
